@@ -30,10 +30,39 @@ public class LoggingAspect {
 //    }
 
 
-    @Before("bean(studentService)")//bean level
+//    @Before("bean(studentService)")//bean level
+//    public  void  logBeforeCreate( ) {
+//        System.out.println("Method intercepted");
+//    }
+
+
+
+
+
+
+
+    //combine designator
+    @Before("bean(studentService) || bean(studentController) )")//bean level
     public  void  logBeforeCreate( ) {
         System.out.println("Method intercepted");
     }
+
+    @Before("within(com.example.SpringDTOPointcut.service..*  )" +
+            " && " +
+            "execution(public * *(..)  )")//bean level
+    public  void  logBeforeCreate1( ) {
+        System.out.println("Method intercepted");
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
