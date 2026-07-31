@@ -1,5 +1,9 @@
 package com.example.SpringDTOPointcut.dto;
 
+
+import jdk.jfr.Timestamp;
+
+@Timestamp
 public class Student {
 
     private  String name;

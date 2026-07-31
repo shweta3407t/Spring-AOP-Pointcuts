@@ -21,9 +21,4 @@ public class StudentService {
         System.out.println(s);
         return  s;
     }
-
-    public int dummy (){
-        System.out.println("dummy method called");
-        return 0;
-    }
 }

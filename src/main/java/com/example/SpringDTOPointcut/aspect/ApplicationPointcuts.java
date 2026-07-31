@@ -10,7 +10,7 @@ public class ApplicationPointcuts {//named point cuts
 
 
     //allow intercept all service method
-    @Pointcut("within(com.example.SpringDTOPointcut.service.StudentService..*(..) )")
+    @Pointcut("within(com.example.SpringDTOPointcut.service.StudentService)")
     public  void serviceLayer(){}
 
 

@@ -13,26 +13,35 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
+//    //execution
 //    @Before("execution( * com.example.SpringDTOPointcut..*(..))")//method level
 //    public  void  logBeforeCreate( ) {
 //        System.out.println("Method intercepted");
 //    }
 
+//    //within
 //    @Before("within( com.example.SpringDTOPointcut.service.*  ) ")//class level
 //    public  void  logBeforeCreate( ) {
 //        System.out.println("Method intercepted");
-//
 //    }
 
-//
+//    //@annotation
 //    @Before("@annotation(jdk.jfr.Timestamp)")//method level
 //    public  void  logBeforeCreate( ) {
 //        System.out.println("Method intercepted");
 //    }
 
 
+//    //bean
 //    @Before("bean(studentService)")//bean level
 //    public  void  logBeforeCreate( ) {
+//        System.out.println("Method intercepted");
+//    }
+
+
+//    //@within     //work  without inheritance
+//    @Before("@within(org.springframework.stereotype.Service)")
+//    public  void  logBeforeCreate3( ) {
 //        System.out.println("Method intercepted");
 //    }
 
@@ -40,26 +49,84 @@ public class LoggingAspect {
 
 
 
-    //named pointcut
-    @Pointcut("within(com.example.SpringDTOPointcut.service..*  )" +
-            " && " +
-            "execution(public * *(..)  )")
-    public  void  logPublicServiceMethod(){}
+
+
+//    //@targate    //work with or without inheritance   *********
+//    @Before("@target(org.springframework.stereotype.Service)")
+//    public void logBeforeCreate4() {
+//        System.out.println("Method intercepted");
+//    }
+
+
+
+//    //args
+//    @Before("args(com.example.SpringDTOPointcut.dto.Student)" +
+//            "&&" +
+//            "within(com.example.SpringDTOPointcut.service..*)")
+//    public void logBeforeCreate4() {
+//        System.out.println("Method intercepted");
+//    }
 
 
 
 
-
-    //combine designator
-    @Before("bean(studentService) || bean(studentController) )")//bean level
-    public  void  logBeforeCreate( ) {
+    //@args
+    @Before("@args(jdk.jfr.Timestamp)")//********
+    public void logBeforeCreate5() {
         System.out.println("Method intercepted");
     }
 
-    @Before ("logPublicServiceMethod()")//bean level
-    public  void  logBeforeCreate1( ) {
-        System.out.println("Method intercepted");
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    //named pointcut
+//    @Pointcut("within(com.example.SpringDTOPointcut.service..*  )" +
+//            " && " +
+//            "execution(public * *(..)  )")
+//    public  void  logPublicServiceMethod(){}
+
+
+//    //combine designator
+//    @Before("bean(studentService) || bean(studentController) )")
+//    public  void  logBeforeCreate( ) {
+//        System.out.println("Method intercepted");
+//    }
+//
+//    @Before ("logPublicServiceMethod()")
+//    public  void  logBeforeCreate1( ) {
+//        System.out.println("Method intercepted");
+//    }
+
+
+//    //pointCuts defined in ApplicationPoints class
+//    @Before ("com.example.SpringDTOPointcut.aspect.ApplicationPointcuts.serviceLayer()")
+//    public  void  logBeforeCreate2( ) {
+//        System.out.println("Method intercepted");
+//     }
+
+
+
+
+
+
 
 
 
