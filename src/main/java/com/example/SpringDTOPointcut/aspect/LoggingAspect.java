@@ -5,6 +5,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 
@@ -39,6 +40,14 @@ public class LoggingAspect {
 
 
 
+    //named pointcut
+    @Pointcut("within(com.example.SpringDTOPointcut.service..*  )" +
+            " && " +
+            "execution(public * *(..)  )")
+    public  void  logPublicServiceMethod(){}
+
+
+
 
 
     //combine designator
@@ -47,12 +56,19 @@ public class LoggingAspect {
         System.out.println("Method intercepted");
     }
 
-    @Before("within(com.example.SpringDTOPointcut.service..*  )" +
-            " && " +
-            "execution(public * *(..)  )")//bean level
+    @Before ("logPublicServiceMethod()")//bean level
     public  void  logBeforeCreate1( ) {
         System.out.println("Method intercepted");
     }
+
+
+
+
+
+
+
+
+
 
 
 
