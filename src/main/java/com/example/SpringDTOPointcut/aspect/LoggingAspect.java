@@ -69,13 +69,13 @@ public class LoggingAspect {
 
 
 
-
-    //@args
-    @Before("@args(jdk.jfr.Timestamp)")//********
-    public void logBeforeCreate5() {
-        System.out.println("Method intercepted");
-    }
-
+//
+//    //@args
+//    @Before("@args(jdk.jfr.Timestamp)")//********
+//    public void logBeforeCreate5() {
+//        System.out.println("Method intercepted");
+//    }
+//
 
 
 
